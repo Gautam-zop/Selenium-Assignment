@@ -27,14 +27,15 @@ public class CartTest {
         webDriver.manage().deleteAllCookies();
         webDriver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        webDriver.get(baseUrl);
     }
 
     @Test
     public void addSingleDressToCart() {
-        webDriver.get(baseUrl);
         indexPage.navigateToDressesTab(webDriver);
         dressesPage.navigateToParticularDress(webDriver, "Casual Dresses");
-        cartPage.assertCartItems(webDriver);
+        dressesPage.navigateToCart(webDriver);
+        cartPage.assertCartItems(webDriver,"Your shopping cart contains: 1 Product");
     }
 
     @AfterMethod

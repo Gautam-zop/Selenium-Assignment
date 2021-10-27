@@ -14,4 +14,8 @@ public class IndexMap {
     public By dressesTab() {
         return By.cssSelector("#block_top_menu > ul > li:nth-child(2) > a");
     }
+
+    public By tshirtTab() {
+        return By.cssSelector("#block_top_menu > ul > li:nth-child(3) > a");
+    }
 }

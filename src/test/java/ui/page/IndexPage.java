@@ -1,5 +1,6 @@
 package ui.page;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -26,5 +27,12 @@ public class IndexPage {
         WebDriverWait wait = new WebDriverWait(webDriver,30);
         wait.until(ExpectedConditions.visibilityOfElementLocated(indexMap.dressesTab()));
         webDriver.findElement(indexMap.dressesTab()).click();
+    }
+
+    public void navigateToTshirtTab(WebDriver webDriver) {
+        ((JavascriptExecutor)webDriver).executeScript("scroll(0, 0)");
+
+        WebDriverWait wait = new WebDriverWait(webDriver,30);
+        webDriver.findElements(indexMap.tshirtTab()).get(0).click();
     }
 }

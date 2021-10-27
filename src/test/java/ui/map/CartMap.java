@@ -4,6 +4,6 @@ import org.openqa.selenium.By;
 
 public class CartMap {
     public By headingSpan() {
-        return By.cssSelector("heading-counter");
+        return By.cssSelector(".heading-counter");
     }
 }

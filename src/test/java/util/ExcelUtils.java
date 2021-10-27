@@ -16,11 +16,13 @@ public class ExcelUtils {
 
         for (int rowCount = 2; rowCount <= reader.getRowCount("Sheet1"); rowCount++){
                 int columnSize = reader.getColumnCount("Sheet1");
-                Object[] list = new Object[columnSize];
+                List<Object> list = new ArrayList<>();
                 for(int columnCount = 0; columnCount < columnSize; columnCount++){
-                    list[columnCount] = reader.getCellData("Sheet1", columnCount, rowCount);
+                    Object cellData= reader.getCellData("Sheet1", columnCount, rowCount);
+                    if(!cellData.equals(""))
+                        list.add(cellData);
                 }
-                data.add(list);
+                data.add(list.toArray());
         }
         return data;
     }
