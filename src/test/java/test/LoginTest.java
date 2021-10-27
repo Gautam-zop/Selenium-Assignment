@@ -43,6 +43,12 @@ public class LoginTest {
         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
+    /**
+     * This tests login with valid credentials
+     * @param email
+     * @param password
+     * @param userName
+     */
     @Test(dataProvider = "loginWithValidData")
     public void loginWithValidCredentials(String email, String password, String userName) {
         webDriver.get(baseUrl);
@@ -51,6 +57,12 @@ public class LoginTest {
         indexPage.assertLogin(webDriver, userName.trim());
     }
 
+    /**
+     * This method tests login with invalid credentials
+     * @param email
+     * @param password
+     * @param message
+     */
     @Test(dataProvider = "loginWithInValidData")
     public void loginWithInValidCredentials(String email, String password, String message) {
         webDriver.get(baseUrl);

@@ -43,8 +43,21 @@ public class RegisterTest {
         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
+    /**
+     * This method tests register new users with valid data
+     * @param email
+     * @param firstName
+     * @param lastName
+     * @param password
+     * @param address
+     * @param city
+     * @param state
+     * @param zipcode
+     * @param mobileNo
+     * @param addressRef
+     */
     @Test(dataProvider = "registerNewUser")
-    public void loginWithValidCredentials(String email, String firstName, String lastName, String password,
+    public void registerWithValidCredentials(String email, String firstName, String lastName, String password,
                                           String address, String city, String state, String zipcode, String mobileNo,
                                           String addressRef) {
         webDriver.get(baseUrl);

@@ -41,6 +41,13 @@ public class PaymentTest {
         return list.iterator();
     }
 
+    /**
+     * This tests payment by wire method after adding one casual dress and one tshirt
+     * @param email
+     * @param firstName
+     * @param lastName
+     * @param password
+     */
     @Test(dataProvider = "payment")
     public void validatePaymentByWireWhenAlreadySignedIn(String email, String firstName, String lastName, String password){
         indexPage.clickSignInButton(webDriver);

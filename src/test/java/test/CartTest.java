@@ -30,6 +30,9 @@ public class CartTest {
         webDriver.get(baseUrl);
     }
 
+    /**
+     * This validates cart after adding one casual dress
+     */
     @Test
     public void addSingleDressToCart() {
         indexPage.navigateToDressesTab(webDriver);
