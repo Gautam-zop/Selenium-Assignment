@@ -73,7 +73,6 @@ public Xls_Reader(String path) {
 			sheet = workbook.getSheetAt(index);
 			row=sheet.getRow(0);
 			for(int i=0;i<row.getLastCellNum();i++){
-				//System.out.println(row.getCell(i).getStringCellValue().trim());
 				if(row.getCell(i).getStringCellValue().trim().equals(colName.trim()))
 					col_Num=i;
 			}

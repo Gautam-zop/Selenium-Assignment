@@ -67,10 +67,10 @@ public class RegisterTest {
         indexPage.assertLogin(webDriver, firstName + " " + lastName);
     }
 
-//    @AfterMethod
-//    public void teardown() {
-//        webDriver.quit();
-//    }
+    @AfterMethod
+    public void teardown() {
+        webDriver.quit();
+    }
 }
 
 
