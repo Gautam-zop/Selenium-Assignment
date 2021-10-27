@@ -51,4 +51,14 @@ public class CheckoutPage {
     public void clickConfirmPaymentPage(WebDriver webDriver) {
         webDriver.findElement(checkoutMap.confirmPageButton());
     }
+
+    public void clickOnCheckPaymentButton(WebDriver webDriver) {
+        try{
+            Thread.sleep(3000);
+            ((JavascriptExecutor)webDriver).executeScript("scroll(0, 300)");
+            webDriver.findElement(checkoutMap.payByCheck()).click();
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
 }

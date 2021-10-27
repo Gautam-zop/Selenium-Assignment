@@ -72,6 +72,30 @@ public class PaymentTest {
         orderConfirmPage.assertOrderDetails(webDriver, "Your order on My Store is complete.pa");
     }
 
+    @Test(dataProvider = "payment")
+    public void validatePaymentByCheckWhenAlreadySignedIn(String email, String firstName, String lastName, String password){
+        indexPage.clickSignInButton(webDriver);
+        loginPage.login(email.trim(), password.trim(), webDriver);
+        indexPage.assertLogin(webDriver, firstName+" "+lastName);
+
+        indexPage.navigateToDressesTab(webDriver);
+        dressesPage.navigateToParticularDress(webDriver, "Casual Dresses");
+
+        indexPage.navigateToTshirtTab(webDriver);
+        dressesPage.addTshirtToCart(webDriver);
+        dressesPage.navigateToCart(webDriver);
+
+        checkoutPage.clickProceedToCheckoutButtonOnSummaryPage(webDriver);
+        checkoutPage.clickProceedToCheckoutButtonOnAddressPage(webDriver);
+        checkoutPage.clickIagreeCheckboxOnShippingPage(webDriver);
+        checkoutPage.clickProceedToCheckoutButtonOnShippingPage(webDriver);
+        cartPage.assertCartItems(webDriver, "Your shopping cart contains: 2 Product");
+
+        checkoutPage.clickOnCheckPaymentButton(webDriver);
+        checkoutPage.clickConfirmPaymentPage(webDriver);
+        orderConfirmPage.assertOrderDetails(webDriver, "Your order on My Store is complete.");
+    }
+
     @AfterMethod
     public void teardown() {
         webDriver.quit();

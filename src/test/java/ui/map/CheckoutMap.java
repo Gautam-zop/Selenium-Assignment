@@ -19,15 +19,15 @@ public class CheckoutMap {
         return By.cssSelector("p button");
     }
 
-    public By productName() {
-        return By.cssSelector("td.cart_description p");
-    }
-
     public By payByWire() {
         return By.cssSelector("#HOOK_PAYMENT > div:nth-child(1) > div > p");
     }
 
     public By confirmPageButton() {
         return By.cssSelector("#cart_navigation > button > span");
+    }
+
+    public By payByCheck() {
+        return By.cssSelector("a[title='Pay by check.']");
     }
 }
