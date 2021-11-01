@@ -25,6 +25,7 @@ public class RegisterTest {
         driver = new ChromeDriver();
         baseUrl = "https://demo.nopcommerce.com/";
         driver.manage().window().maximize();
+        driver.get(baseUrl);
     }
 
     @DataProvider
@@ -41,7 +42,6 @@ public class RegisterTest {
 
     @Test(dataProvider = "registerWithValidCredentails")
     public void registerValidCredentails(String gender, String firstName, String lastName, String email, String password){
-        driver.get(baseUrl);
         indexPage.clickRegisterButton(driver);
         registerPage.fillFormFieldTextBox(driver, gender.toLowerCase(), firstName, lastName, email, password);
         registerPage.assertAccountSuccessMessage(driver, "Your registration completed");
@@ -49,7 +49,6 @@ public class RegisterTest {
 
     @Test(dataProvider = "registerWithValidCredentails")
     public void registerWithFirstNameFieldEmpty(String gender, String firstName, String lastName, String email, String password){
-        driver.get(baseUrl);
         indexPage.clickRegisterButton(driver);
         registerPage.fillFormFieldTextBoxExceptFirstName(driver, gender.toLowerCase(), lastName, email, password);
         registerPage.assertErrorMessage(driver, "FirstName", "First name is required.");
@@ -57,7 +56,6 @@ public class RegisterTest {
 
     @Test(dataProvider = "registerWithValidCredentails")
     public void registerWithLastNameFieldEmpty(String gender, String firstName, String lastName, String email, String password){
-        driver.get(baseUrl);
         indexPage.clickRegisterButton(driver);
         registerPage.fillFormFieldTextBoxExceptLastName(driver, gender.toLowerCase(), firstName, email, password);
         registerPage.assertErrorMessage(driver, "LastName", "Last name is required.");
@@ -65,7 +63,6 @@ public class RegisterTest {
 
     @Test(dataProvider = "registerWithDuplicateEmail")
     public void registerWithDuplicateEmailField(String gender, String firstName, String lastName, String email, String password){
-        driver.get(baseUrl);
         indexPage.clickRegisterButton(driver);
         registerPage.fillFormFieldTextBoxWithDuplicateEmailField(driver, gender.toLowerCase(), firstName, lastName, email, password);
         registerPage.assertDuplicateErrorMessage(driver, "The specified email already exists");

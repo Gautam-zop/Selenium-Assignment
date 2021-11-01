@@ -28,6 +28,7 @@ public class RegisterPage {
         String actualSuccessMessage = driver.findElement(registerMap.successMessage()).getText();
         Assert.assertEquals(actualSuccessMessage, message);
     }
+
     private void implicitWaitTimout(int time, WebDriver driver) {
         driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
     }

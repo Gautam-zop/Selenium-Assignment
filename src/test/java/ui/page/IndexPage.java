@@ -1,5 +1,6 @@
 package ui.page;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ui.map.IndexMap;
 
@@ -15,5 +16,10 @@ public class IndexPage {
 
     private void implicitWaitTimout(int time, WebDriver driver) {
         driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
+    }
+
+    public void clickLoginButton(WebDriver driver, String email, String password) {
+        implicitWaitTimout(5, driver);
+        driver.findElement(indexMap.loginButton()).click();
     }
 }
