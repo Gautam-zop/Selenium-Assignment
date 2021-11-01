@@ -22,4 +22,12 @@ public class IndexPage {
         implicitWaitTimout(5, driver);
         driver.findElement(indexMap.loginButton()).click();
     }
+
+    public void clickElectronicButton(WebDriver driver) {
+        driver.findElement(indexMap.electronicButton()).click();
+    }
+
+    public void clickComputerButton(WebDriver driver) {
+        driver.findElement(indexMap.computerButton()).click();
+    }
 }

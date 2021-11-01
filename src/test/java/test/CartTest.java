@@ -4,16 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import ui.page.CartPage;
-import ui.page.ElectronicPage;
-import ui.page.IndexPage;
-import ui.page.LoginPage;
-import utils.ExcelUtils;
+import ui.page.*;
 
-import java.util.Iterator;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class CartTest {
@@ -23,21 +16,9 @@ public class CartTest {
     private WebDriver driver;
     private String baseUrl;
     private final IndexPage indexPage = new IndexPage();
-    private final LoginPage loginPage = new LoginPage();
+    private final ComputerPage computerPage = new ComputerPage();
     private final CartPage cartPage = new CartPage();
     private final ElectronicPage electronicPage = new ElectronicPage();
-
-    @DataProvider
-    public Iterator<Object[]> loginWithValidData(){
-        List<Object[]> list = ExcelUtils.getDataFromExcel("assignment2_login_valid.xlsx");
-        return list.iterator();
-    }
-
-    @DataProvider
-    public Iterator<Object[]> loginWithInValidData(){
-        List<Object[]> list = ExcelUtils.getDataFromExcel("assignment2_login_Invalid.xlsx");
-        return list.iterator();
-    }
 
     @BeforeMethod
     public void setUp() {
@@ -70,6 +51,26 @@ public class CartTest {
         electronicPage.clickCameraButton(driver);
         electronicPage.clickAddCameraToWishListButton(driver);
         electronicPage.assertCartWithElectronicProduct(driver, "The product has been added to your wishlist");
+    }
+
+    @Test
+    public void validateCartAfterAddingOneComputer(){
+        implicitWaitTimout(5, driver);
+        indexPage.clickComputerButton(driver);
+        computerPage.clickDesktopAnchor(driver);
+        computerPage.clickDigitalStormCpuAnchor(driver);
+        computerPage.clickAddCpuToCart(driver);
+        computerPage.assertCartWithComputer(driver, "The product has been added to your shopping cart");
+    }
+
+    @Test
+    public void validateWishlistAfterAddingOneComputer(){
+        implicitWaitTimout(5, driver);
+        indexPage.clickComputerButton(driver);
+        computerPage.clickDesktopAnchor(driver);
+        computerPage.clickDigitalStormCpuAnchor(driver);
+        computerPage.clickAddCpuToWishlist(driver);
+        computerPage.assertCartWithComputer(driver, "The product has been added to your wishlist");
     }
 
     @AfterMethod

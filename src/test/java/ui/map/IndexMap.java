@@ -10,4 +10,12 @@ public class IndexMap {
     public By loginButton() {
         return By.cssSelector(".ico-login");
     }
+
+    public By electronicButton() {
+        return By.cssSelector(".top-menu.notmobile li a[href='/electronics']");
+    }
+
+    public By computerButton() {
+        return By.cssSelector("ul.top-menu.notmobile li a[href='/computers']");
+    }
 }
