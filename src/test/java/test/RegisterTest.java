@@ -13,6 +13,9 @@ import utils.ExcelUtils;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * This class contains test cases related to registration
+ */
 public class RegisterTest {
     private WebDriver driver;
     private final IndexPage indexPage = new IndexPage();
@@ -40,6 +43,14 @@ public class RegisterTest {
         return list.iterator();
     }
 
+    /**
+     * This methods validates registration with valid data
+     * @param gender
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param password
+     */
     @Test(dataProvider = "registerWithValidCredentails")
     public void registerValidCredentails(String gender, String firstName, String lastName, String email, String password){
         indexPage.clickRegisterButton(driver);
@@ -47,6 +58,14 @@ public class RegisterTest {
         registerPage.assertAccountSuccessMessage(driver, "Your registration completed");
     }
 
+    /**
+     * This methods validates registration with firstname field empty
+     * @param gender
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param password
+     */
     @Test(dataProvider = "registerWithValidCredentails")
     public void registerWithFirstNameFieldEmpty(String gender, String firstName, String lastName, String email, String password){
         indexPage.clickRegisterButton(driver);
@@ -54,6 +73,14 @@ public class RegisterTest {
         registerPage.assertErrorMessage(driver, "FirstName", "First name is required.");
     }
 
+    /**
+     * This methods validates registration with lastname field empty
+     * @param gender
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param password
+     */
     @Test(dataProvider = "registerWithValidCredentails")
     public void registerWithLastNameFieldEmpty(String gender, String firstName, String lastName, String email, String password){
         indexPage.clickRegisterButton(driver);
@@ -61,6 +88,14 @@ public class RegisterTest {
         registerPage.assertErrorMessage(driver, "LastName", "Last name is required.");
     }
 
+    /**
+     * This methods validates registration with duplicate email
+     * @param gender
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param password
+     */
     @Test(dataProvider = "registerWithDuplicateEmail")
     public void registerWithDuplicateEmailField(String gender, String firstName, String lastName, String email, String password){
         indexPage.clickRegisterButton(driver);

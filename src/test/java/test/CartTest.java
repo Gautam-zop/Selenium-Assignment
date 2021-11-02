@@ -9,6 +9,9 @@ import ui.page.*;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * This class contains test cases related to cart
+ */
 public class CartTest {
 
     public static final String LOGIN_WAS_UNSUCCESSFUL_MESSAGE = "Login was unsuccessful. Please correct the errors and try again.\n" +
@@ -29,12 +32,18 @@ public class CartTest {
         driver.get(baseUrl);
     }
 
+    /**
+     * Validate empty cart
+     */
     @Test
     public void emptyCart(){
         implicitWaitTimout(5, driver);
         cartPage.assertCart(driver);
     }
 
+    /**
+     * validate cart after adding one electronic product
+     */
     @Test
     public void validateCartAfterAddingOneElectronicItem(){
         implicitWaitTimout(5, driver);
@@ -44,6 +53,9 @@ public class CartTest {
         electronicPage.assertCartWithElectronicProduct(driver, "The product has been added to your shopping cart");
     }
 
+    /**
+     * validate wishlist after adding one electronic product
+     */
     @Test
     public void validateWishListAfterAddingOneElectronicItem(){
         implicitWaitTimout(5, driver);
@@ -53,6 +65,9 @@ public class CartTest {
         electronicPage.assertCartWithElectronicProduct(driver, "The product has been added to your wishlist");
     }
 
+    /**
+     * validate cart after adding one computer
+     */
     @Test
     public void validateCartAfterAddingOneComputer(){
         implicitWaitTimout(5, driver);
@@ -63,6 +78,9 @@ public class CartTest {
         computerPage.assertCartWithComputer(driver, "The product has been added to your shopping cart");
     }
 
+    /**
+     * validate wishlist after adding one computer
+     */
     @Test
     public void validateWishlistAfterAddingOneComputer(){
         implicitWaitTimout(5, driver);

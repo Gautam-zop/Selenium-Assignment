@@ -12,6 +12,10 @@ import utils.ExcelUtils;
 
 import java.util.Iterator;
 import java.util.List;
+
+/**
+ * This class contains test cases related to login
+ */
 public class LoginTest {
     public static final String LOGIN_WAS_UNSUCCESSFUL_MESSAGE = "Login was unsuccessful. Please correct the errors and try again.\n" +
             "No customer account found";
@@ -41,6 +45,11 @@ public class LoginTest {
         driver.get(baseUrl);
     }
 
+    /**
+     * Login with valid credentials
+     * @param email
+     * @param password
+     */
     @Test(dataProvider = "loginWithValidData")
     public void loginWithValidCredentials(String email, String password) {
         indexPage.clickLoginButton(driver, email, password);
@@ -48,6 +57,11 @@ public class LoginTest {
         loginPage.assertLoginMessage(driver);
     }
 
+    /**
+     * Login with Invalid credentials
+     * @param email
+     * @param password
+     */
     @Test(dataProvider = "loginWithInValidData")
     public void loginWithInValidCredentials(String email, String password) {
         indexPage.clickLoginButton(driver, email, password);

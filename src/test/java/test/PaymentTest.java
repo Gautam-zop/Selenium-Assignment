@@ -14,6 +14,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * This class contains all the payment related test cases
+ */
 public class PaymentTest {
 
     public static final String LOGIN_WAS_UNSUCCESSFUL_MESSAGE = "Login was unsuccessful. Please correct the errors and try again.\n" +
@@ -42,6 +45,18 @@ public class PaymentTest {
         driver.get(baseUrl);
     }
 
+    /**
+     * This method validate Payment By check
+     * @param gender
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param password
+     * @param city
+     * @param address
+     * @param zipcode
+     * @param phoneNumber
+     */
     @Test(dataProvider = "payWithCheck")
     public void validatePaymentByCheck(String gender, String firstName, String lastName, String email, String password,
                                        String city, String address, String zipcode, String phoneNumber){
@@ -83,6 +98,18 @@ public class PaymentTest {
         checkoutPage.assertConfirmOrder(driver, "Your order has been successfully processed!");
     }
 
+    /**
+     * This method validate payment by credit card
+     * @param gender
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param password
+     * @param city
+     * @param address
+     * @param zipcode
+     * @param phoneNumber
+     */
     @Test(dataProvider = "payWithCheck")
     public void validatePaymentByCreditCard(String gender, String firstName, String lastName, String email, String password,
                                        String city, String address, String zipcode, String phoneNumber){
@@ -124,6 +151,18 @@ public class PaymentTest {
         checkoutPage.assertConfirmOrder(driver, "Your order has been successfully processed!");
     }
 
+    /**
+     * This method validate payment by card for next day delivery option
+     * @param gender
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param password
+     * @param city
+     * @param address
+     * @param zipcode
+     * @param phoneNumber
+     */
     @Test(dataProvider = "payWithCheck")
     public void validatePaymentByCreditCardForNextDayDelivery(String gender, String firstName, String lastName, String email, String password,
                                             String city, String address, String zipcode, String phoneNumber){
@@ -165,6 +204,18 @@ public class PaymentTest {
         checkoutPage.assertConfirmOrder(driver, "Your order has been successfully processed!");
     }
 
+    /**
+     * This method validate payment by card for next day delivery from wish list
+     * @param gender
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param password
+     * @param city
+     * @param address
+     * @param zipcode
+     * @param phoneNumber
+     */
     @Test(dataProvider = "payWithCheck")
     public void validatePaymentByCreditCardForNextDayDeliveryFromWishList(String gender, String firstName, String lastName, String email, String password,
                                                               String city, String address, String zipcode, String phoneNumber){
@@ -208,6 +259,18 @@ public class PaymentTest {
         checkoutPage.assertConfirmOrder(driver, "Your order has been successfully processed!");
     }
 
+    /**
+     * This method validate payment by check for next day delivery from wishlist
+     * @param gender
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param password
+     * @param city
+     * @param address
+     * @param zipcode
+     * @param phoneNumber
+     */
     @Test(dataProvider = "payWithCheck")
     public void validatePaymentByCheckForNextDayDeliveryFromWishList(String gender, String firstName, String lastName, String email, String password,
                                                                           String city, String address, String zipcode, String phoneNumber){
@@ -251,6 +314,18 @@ public class PaymentTest {
         checkoutPage.assertConfirmOrder(driver, "Your order has been successfully processed!");
     }
 
+    /**
+     * This method validate payment by check for ground delivery from wishlist
+     * @param gender
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param password
+     * @param city
+     * @param address
+     * @param zipcode
+     * @param phoneNumber
+     */
     @Test(dataProvider = "payWithCheck")
     public void validatePaymentByCheckForGroundDeliveryFromWishList(String gender, String firstName, String lastName, String email, String password,
                                                                      String city, String address, String zipcode, String phoneNumber){
@@ -294,6 +369,18 @@ public class PaymentTest {
         checkoutPage.assertConfirmOrder(driver, "Your order has been successfully processed!");
     }
 
+    /**
+     * This method validate payment by card for next day delivery from wishlist
+     * @param gender
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param password
+     * @param city
+     * @param address
+     * @param zipcode
+     * @param phoneNumber
+     */
     @Test(dataProvider = "payWithCheck")
     public void validatePaymentByCardForGroundDeliveryFromWishList(String gender, String firstName, String lastName, String email, String password,
                                                                     String city, String address, String zipcode, String phoneNumber){
