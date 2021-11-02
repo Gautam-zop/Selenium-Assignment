@@ -22,4 +22,8 @@ public class ComputerMap {
     public By addToWishlistButton() {
         return By.cssSelector("div.add-to-wishlist .button-2.add-to-wishlist-button");
     }
+
+    public By closeMessageButton() {
+        return By.cssSelector(".close");
+    }
 }

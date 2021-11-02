@@ -26,4 +26,8 @@ public class ComputerPage {
     public void clickAddCpuToWishlist(WebDriver driver) {
         driver.findElement(computerMap.addToWishlistButton()).click();
     }
+
+    public void clickCloseMessageButton(WebDriver driver) {
+        driver.findElement(computerMap.closeMessageButton()).click();
+    }
 }
