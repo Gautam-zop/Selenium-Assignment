@@ -32,4 +32,13 @@ public class CartPage {
     public void clickContinueButton(WebDriver driver) {
         driver.findElement(cartMap.continueButton()).click();
     }
+
+    public void clickWishlistButton(WebDriver driver) {
+        driver.findElement(cartMap.wishlistButton()).click();
+        List<WebElement> list = driver.findElements(cartMap.listProducts());
+        for(WebElement element : list){
+            element.click();
+        }
+        driver.findElement(cartMap.addToCartButton()).click();
+    }
 }

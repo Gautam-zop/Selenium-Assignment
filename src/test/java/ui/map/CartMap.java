@@ -22,4 +22,16 @@ public class CartMap {
     public By continueButton() {
         return By.cssSelector("button#checkout");
     }
+
+    public By wishlistButton() {
+        return By.cssSelector(".wishlist-label");
+    }
+
+    public By addToCartButton() {
+        return By.cssSelector(".button-2.wishlist-add-to-cart-button");
+    }
+
+    public By listProducts() {
+        return By.cssSelector("td.add-to-cart");
+    }
 }
